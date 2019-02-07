@@ -6,7 +6,3 @@ class Item(object):
         self.date = date
         self.complete = False
         self.items = []
-
-    def addtasktoitems():
-        for task in items:
-            items.append(task)

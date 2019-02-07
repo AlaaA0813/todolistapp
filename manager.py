@@ -20,8 +20,6 @@ class Manager(object):
         file1 = open('todos.txt', 'a+') # (file, action)  this opens todo.txt in append('a+') mode and assigns it to the variable file1.
         task = input("Create A New Task: ") # the user will see the string 'Create A New Task: ' which is followed by the user's input.  Assign the user's input to task.
         file1.write("\n" + task + ' ' + now) # add task on a new line to file1, which would be todos.txt in this case.
-        for task in items:
-            items.append(task)
         file1.close() # close file1, todos.txt in this case.
 
 
