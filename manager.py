@@ -16,9 +16,9 @@ class Manager(object):
 
 # Add a new item with timestamp to the to-do list:
     def addtask():
-        now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") # add timestamp from imported modules
+        now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') # add timestamp from imported modules
         file1 = open('todos.txt', 'a+') # (file, action)  this opens todo.txt in append('a+') mode and assigns it to the variable file1.
-        task = input("Create A New Task: ") # the user will see the string 'Create A New Task: ' which is followed by the user's input.  Assign the user's input to task.
+        task = input('Create A New Task: ') # the user will see the string 'Create A New Task: ' which is followed by the user's input.  Assign the user's input to task.
         file1.write("\n" + task + ' ' + now) # add task on a new line to file1, which would be todos.txt in this case.
         file1.close() # close file1, todos.txt in this case.
 
@@ -29,7 +29,7 @@ class Manager(object):
 
         taskcomplete = input('What task did you complete? ') # ask for user task
 
-        markedtask = edit.replace(taskcomplete, taskcomplete + " COMPLETED " + str(True)) # replace taskcomplete with taskcomplete + the string COMPLETE
+        markedtask = edit.replace(taskcomplete, taskcomplete + ' COMPLETED ' + str(True)) # replace taskcomplete with taskcomplete + the string COMPLETE
 
         f2 = open('todos.txt', 'w+') # open the file in write mode
         if f2 == markedtask: # if the completed task != the name of the input
