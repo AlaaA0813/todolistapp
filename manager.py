@@ -2,7 +2,32 @@ import time
 import datetime
 import item
 
+# the app keeps closing everytime a task is input or completed.  find why.
+
+
 class Manager(object):
+
+    def welcome():
+        print('Welcome to your Todo Manager!')
+        print('Would you like to do?')
+        print('1. Add a task.')
+        print('2. Complete a task.')
+        print('3. Quit.')
+
+        choice = input('> ')
+
+        if choice == '1' or choice.lower() == 'Add a task' or choice.lower() == 'Add':
+            Manager.addtask()
+
+        elif choice == '2' or choice.lower() == 'Commplete a task' or choice.lower() == 'Complete':
+            Manager.completed()
+
+        elif choice == '3' or choice.lower() == 'Quit':
+            print('Goodbye!')
+            exit(0)
+
+        else:
+            print("Type something else.")
 
 # Print all of the items on the to-do list:
     def printlist():
@@ -32,8 +57,8 @@ class Manager(object):
         markedtask = edit.replace(taskcomplete, taskcomplete + ' COMPLETED ' + str(True)) # replace taskcomplete with taskcomplete + the string COMPLETE
 
         f2 = open('todos.txt', 'w+') # open the file in write mode
-        if f2 == markedtask: # if the completed task != the name of the input
-            f2.write(markedtask) # return
+        if f2 == markedtask: # if the completed task == the marked task
+            f2.write(markedtask) # add COMPLETED to the task
         else:
             print('You don\'t have that task.')
         f2.write(markedtask) # actually add "taskcomplete + COMPLETE" to the file
@@ -43,6 +68,4 @@ class Manager(object):
         print(message) # print the list
         f.close() # close the updated files
 
-Manager.printlist()
-Manager.addtask()
-Manager.completed()
+Manager.welcome()
