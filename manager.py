@@ -1,20 +1,22 @@
 import time
 import datetime
 import item
-
+from textwrap import dedent
 
 class Manager(object):
 
     print('Welcome to your Todo Manager!') # welcome message
 
     def welcome():
-        print('Would you like to do?') # provide user options
-        print('1. Add a task.') # option 1
-        print('2. Complete a task.') # option 2
-        print('3. Show list.') # option 3
-        print('4. Quit.') # option 4
+        print(dedent("""
+            Would you like to do?
+            1. Add a task.
+            2. Complete a task.
+            3. Show list.
+            4. Quit.
+            """))
 
-        choice = input('\n' + '> ')
+        choice = input('> ')
 
         if choice == '1' or choice.lower() == 'Add a task' or choice.lower() == 'Add': # .lower() lowercases the user's input
             Manager.addtask() # from class Manager, run funciton addtask()
