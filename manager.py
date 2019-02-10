@@ -8,16 +8,16 @@ import item
 class Manager(object):
 
     def welcome():
-        print('Welcome to your Todo Manager!')
-        print('Would you like to do?')
-        print('1. Add a task.')
-        print('2. Complete a task.')
-        print('3. Quit.')
+        print('Welcome to your Todo Manager!') # welcome message
+        print('Would you like to do?') # provide user options
+        print('1. Add a task.') # option 1
+        print('2. Complete a task.') # option 2
+        print('3. Quit.') # option 3
 
         choice = input('> ')
 
-        if choice == '1' or choice.lower() == 'Add a task' or choice.lower() == 'Add':
-            Manager.addtask()
+        if choice == '1' or choice.lower() == 'Add a task' or choice.lower() == 'Add': # .lower() lowercases the user's input
+            Manager.addtask() # from class Manager, run funciton addtask()
 
         elif choice == '2' or choice.lower() == 'Commplete a task' or choice.lower() == 'Complete':
             Manager.completed()
@@ -68,4 +68,4 @@ class Manager(object):
         print(message) # print the list
         f.close() # close the updated files
 
-Manager.welcome()
+Manager.welcome() # from class Manager, run welcome()
