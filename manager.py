@@ -6,17 +6,17 @@ class Manager(object):
 
 # Print all of the items on the to-do list:
     def printlist():
-        # Print all of the items on the to-do list:
+
         f = open('todos.txt', 'r') # (file, action)  this opens todo.txt in read('r') mode and assigns it to the variable f.
 
-        list = f.read() # .read() reads the file assigned to the variable f.  this is assigned to message.  So the read file = message.
+        list = f.read() # .read() reads the file assigned to the variable f.  this is assigned to list.  So the read file = list.
 
         print(list) # print the value of message.  so print the read file.
         f.close() # close the file since we are done with it.
 
 # Add a new item with timestamp to the to-do list:
     def addtask():
-        now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') # add timestamp from imported modules
+        now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') # add timestamp from imported modules and fornat it so it does not say miliseconds
         file1 = open('todos.txt', 'a+') # (file, action)  this opens todo.txt in append('a+') mode and assigns it to the variable file1.
         task = input('Create A New Task: ') # the user will see the string 'Create A New Task: ' which is followed by the user's input.  Assign the user's input to task.
         file1.write("\n" + task + ' ' + now) # add task on a new line to file1, which would be todos.txt in this case.
