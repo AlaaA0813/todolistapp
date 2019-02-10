@@ -67,7 +67,7 @@ class Manager(object):
         markedtask = edit.replace(taskcomplete, taskcomplete + ' COMPLETED ' + str(True)) # replace taskcomplete with taskcomplete + the string COMPLETE
 
         f2 = open('todos.txt', 'w+') # open the file in write mode
-        if f2 == markedtask: # if the completed task == the marked task
+        if f2 == markedtask: # if the completed task == the marked complete task
             f2.write(markedtask) # add COMPLETED to the task
         else:
             print('You don\'t have that task.')
