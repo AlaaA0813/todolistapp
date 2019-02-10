@@ -1,27 +1,62 @@
 import time
 import datetime
 import item
+from textwrap import dedent
 
 class Manager(object):
 
+    print('Welcome to your Todo Manager!') # welcome message
+
+    def welcome():
+        print(dedent("""
+            Would you like to do?
+            1. Add a task.
+            2. Complete a task.
+            3. Show list.
+            4. Quit.
+            """))
+
+        choice = input('> ')
+
+        if choice == '1' or choice == 'add a task' or choice == 'add': # .lower() lowercases the user's input
+            Manager.addtask() # from class Manager, run funciton addtask()
+
+        elif choice == '2' or choice == 'complete a task' or choice == 'complete task' or choice == 'complete':
+            Manager.completed()
+
+        elif choice == '3' or choice == 'show list' or choice == 'show' or choice == 'list':
+            Manager.printlist()
+            Manager.welcome()
+
+        elif choice == '4' or choice == 'quit' or choice == 'q':
+            print('Goodbye!\n')
+            exit(0)
+
+        else:
+            print("Type something else.\n")
+            Manager.welcome()
+
 # Print all of the items on the to-do list:
     def printlist():
-        # Print all of the items on the to-do list:
+
         f = open('todos.txt', 'r') # (file, action)  this opens todo.txt in read('r') mode and assigns it to the variable f.
 
-        list = f.read() # .read() reads the file assigned to the variable f.  this is assigned to message.  So the read file = message.
+        list = f.read() # .read() reads the file assigned to the variable f.  this is assigned to list.  So the read file = list.
 
-        print(list) # print the value of message.  so print the read file.
+        print(list) # print the value of list.  so print the read file.
         f.close() # close the file since we are done with it.
 
 # Add a new item with timestamp to the to-do list:
     def addtask():
-        now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') # add timestamp from imported modules
+        now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') # add timestamp from imported modules and fornat it so it does not say miliseconds
         file1 = open('todos.txt', 'a+') # (file, action)  this opens todo.txt in append('a+') mode and assigns it to the variable file1.
         task = input('Create A New Task: ') # the user will see the string 'Create A New Task: ' which is followed by the user's input.  Assign the user's input to task.
         file1.write("\n" + task + ' ' + now) # add task on a new line to file1, which would be todos.txt in this case.
         file1.close() # close file1, todos.txt in this case.
 
+        print('Task Added!\n')
+
+        Manager.welcome()
 
 # Mark an item as complete:
     def completed():
@@ -32,8 +67,8 @@ class Manager(object):
         markedtask = edit.replace(taskcomplete, taskcomplete + ' COMPLETED ' + str(True)) # replace taskcomplete with taskcomplete + the string COMPLETE
 
         f2 = open('todos.txt', 'w+') # open the file in write mode
-        if f2 == markedtask: # if the completed task != the name of the input
-            f2.write(markedtask) # return
+        if f2 == markedtask: # if the completed task == the marked complete task
+            f2.write(markedtask) # add COMPLETED to the task
         else:
             print('You don\'t have that task.')
         f2.write(markedtask) # actually add "taskcomplete + COMPLETE" to the file
@@ -43,6 +78,9 @@ class Manager(object):
         print(message) # print the list
         f.close() # close the updated files
 
-Manager.printlist()
-Manager.addtask()
-Manager.completed()
+        print('Task Complete!\n')
+
+        Manager.welcome()
+
+Manager() # call class Manager
+Manager.welcome() # call class Manager, then run welcome function.

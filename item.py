@@ -6,3 +6,5 @@ class Item(object):
         self.date = date
         self.complete = False
         self.items = []
+
+# Not using this file properly
