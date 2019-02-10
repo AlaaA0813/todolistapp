@@ -2,8 +2,6 @@ import time
 import datetime
 import item
 
-# the app keeps closing everytime a task is input or completed.  find why.
-
 
 class Manager(object):
 
@@ -16,7 +14,7 @@ class Manager(object):
         print('3. Show list.') # option 3
         print('4. Quit.') # option 4
 
-        choice = input('> ')
+        choice = input('\n' + '> ')
 
         if choice == '1' or choice.lower() == 'Add a task' or choice.lower() == 'Add': # .lower() lowercases the user's input
             Manager.addtask() # from class Manager, run funciton addtask()
@@ -26,13 +24,14 @@ class Manager(object):
 
         elif choice == '3' or choice.lower() == 'Show list' or choice.lower() == 'Show' or choice.lower() == 'List':
             Manager.printlist()
+            Manager.welcome()
 
-        elif choice == '4' or choice.lower() == 'Quit':
-            print('Goodbye!')
+        elif choice == '4' or choice.lower() == 'Quit' or choice.lower() == 'q':
+            print('Goodbye!\n')
             exit(0)
 
         else:
-            print("Type something else.")
+            print("Type something else.\n")
             Manager.welcome()
 
 # Print all of the items on the to-do list:
@@ -42,7 +41,7 @@ class Manager(object):
 
         list = f.read() # .read() reads the file assigned to the variable f.  this is assigned to list.  So the read file = list.
 
-        print(list) # print the value of message.  so print the read file.
+        print(list + '\n') # print the value of list.  so print the read file.
         f.close() # close the file since we are done with it.
 
 # Add a new item with timestamp to the to-do list:
@@ -53,7 +52,7 @@ class Manager(object):
         file1.write("\n" + task + ' ' + now) # add task on a new line to file1, which would be todos.txt in this case.
         file1.close() # close file1, todos.txt in this case.
 
-        print('Task Added!')
+        print('Task Added!\n')
 
         Manager.welcome()
 
@@ -77,7 +76,7 @@ class Manager(object):
         print(message) # print the list
         f.close() # close the updated files
 
-        print('Task Complete!')
+        print('Task Complete!\n')
 
         Manager.welcome()
 
