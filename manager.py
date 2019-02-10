@@ -18,17 +18,17 @@ class Manager(object):
 
         choice = input('> ')
 
-        if choice == '1' or choice.lower() == 'Add a task' or choice.lower() == 'Add': # .lower() lowercases the user's input
+        if choice == '1' or choice == 'add a task' or choice == 'add': # .lower() lowercases the user's input
             Manager.addtask() # from class Manager, run funciton addtask()
 
-        elif choice == '2' or choice.lower() == 'Commplete a task' or choice.lower() == 'Complete':
+        elif choice == '2' or choice == 'complete a task' or choice == 'complete task' or choice == 'complete':
             Manager.completed()
 
-        elif choice == '3' or choice.lower() == 'Show list' or choice.lower() == 'Show' or choice.lower() == 'List':
+        elif choice == '3' or choice == 'show list' or choice == 'show' or choice == 'list':
             Manager.printlist()
             Manager.welcome()
 
-        elif choice == '4' or choice.lower() == 'Quit' or choice.lower() == 'q':
+        elif choice == '4' or choice == 'quit' or choice == 'q':
             print('Goodbye!\n')
             exit(0)
 
@@ -43,7 +43,7 @@ class Manager(object):
 
         list = f.read() # .read() reads the file assigned to the variable f.  this is assigned to list.  So the read file = list.
 
-        print(list + '\n') # print the value of list.  so print the read file.
+        print(list) # print the value of list.  so print the read file.
         f.close() # close the file since we are done with it.
 
 # Add a new item with timestamp to the to-do list:
