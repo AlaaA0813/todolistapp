@@ -7,12 +7,14 @@ import item
 
 class Manager(object):
 
+    print('Welcome to your Todo Manager!') # welcome message
+
     def welcome():
-        print('Welcome to your Todo Manager!') # welcome message
         print('Would you like to do?') # provide user options
         print('1. Add a task.') # option 1
         print('2. Complete a task.') # option 2
-        print('3. Quit.') # option 3
+        print('3. Show list.') # option 3
+        print('4. Quit.') # option 4
 
         choice = input('> ')
 
@@ -22,12 +24,16 @@ class Manager(object):
         elif choice == '2' or choice.lower() == 'Commplete a task' or choice.lower() == 'Complete':
             Manager.completed()
 
-        elif choice == '3' or choice.lower() == 'Quit':
+        elif choice == '3' or choice.lower() == 'Show list' or choice.lower() == 'Show' or choice.lower() == 'List':
+            Manager.printlist()
+
+        elif choice == '4' or choice.lower() == 'Quit':
             print('Goodbye!')
             exit(0)
 
         else:
             print("Type something else.")
+            Manager.welcome()
 
 # Print all of the items on the to-do list:
     def printlist():
@@ -47,6 +53,9 @@ class Manager(object):
         file1.write("\n" + task + ' ' + now) # add task on a new line to file1, which would be todos.txt in this case.
         file1.close() # close file1, todos.txt in this case.
 
+        print('Task Added!')
+
+        Manager.welcome()
 
 # Mark an item as complete:
     def completed():
@@ -68,4 +77,9 @@ class Manager(object):
         print(message) # print the list
         f.close() # close the updated files
 
-Manager.welcome() # from class Manager, run welcome()
+        print('Task Complete!')
+
+        Manager.welcome()
+
+Manager() # call class Manager
+Manager.welcome() # call class Manager, then run welcome function.
