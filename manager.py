@@ -35,7 +35,7 @@ class Manager(object):
             exit(0) # exit program
 
         else:
-            print("\nType something else.\n")
+            print("\nType one of the options.\n")
             Manager.welcome() # from class Manager, get/run welcome()
 
 # Print all of the items on the to-do list:
