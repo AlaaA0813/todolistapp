@@ -9,7 +9,7 @@ class Manager(object):
 
     def welcome(): # function for input options
         print(dedent("""
-            Would you like to do?
+            What would you like to do?
             1. Add a task.
             2. Complete a task.
             3. Show list.
