@@ -3,6 +3,8 @@ import datetime
 import item
 from textwrap import dedent
 
+# I would like to add a delete/truncate entire list or delete a task item.
+
 class Manager(object):
 
     print('\nWelcome to your Todo Manager!') # welcome message
